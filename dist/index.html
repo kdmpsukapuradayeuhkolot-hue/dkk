@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warung POS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                '500': '#3b82f6', // blue-500
+                '600': '#2563eb', // blue-600
+                '700': '#1d4ed8', // blue-700
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* UI Patch: Scrollbars & Design Tokens */
+      :root {
+        --pos-primary-500: #3b82f6;
+        --pos-primary-600: #2563eb;
+        --pos-border: 1px solid rgba(82, 82, 91, .9);
+        --pos-bg: #0a0a0a;
+        --pos-field: #111113;
+        --pos-text: #e5e7eb;
+        --pos-placeholder: #71717a;
+
+        --sb-size: 12px;
+        --sb-radius: 8px;
+        --sb-thumb: rgba(82, 82, 91, .9);
+        --sb-track: transparent;
+      }
+      
+      .nice-scrollbar {
+        scrollbar-gutter: stable;
+        scrollbar-width: thin; /* Firefox */
+      }
+      .nice-scrollbar::-webkit-scrollbar { width: var(--sb-size); height: var(--sb-size); }
+      .nice-scrollbar::-webkit-scrollbar-track { background: var(--sb-track); }
+      .nice-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb);
+        border-radius: var(--sb-radius);
+        border: 3px solid transparent; background-clip: padding-box;
+      }
+      .nice-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in srgb, var(--sb-thumb) 80%, white);
+      }
+      
+      /* UI Patch: Native Select Styling */
+      .select-native {
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), 
+                          linear-gradient(135deg, currentColor 50%, transparent 50%);
+        background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+        background-size: 5px 5px, 5px 5px;
+        background-repeat: no-repeat;
+      }
+      
+      .receipt {
+        font-family: 'Courier New', Courier, monospace;
+        font-variant-numeric: tabular-nums;
+      }
+      @media print {
+        html, body {
+          background: #fff !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .receipt, .receipt * {
+          color: #000 !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        body > div#root > div:first-child {
+          display: none;
+        }
+        body > div#root > div:last-child {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.1.2",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.8.2",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.541.0",
+    "react-select": "https://aistudiocdn.com/react-select@^5.10.2",
+    "dexie-react-hooks": "https://aistudiocdn.com/dexie-react-hooks@^4.2.0",
+    "dexie": "https://aistudiocdn.com/dexie@^4.2.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CjCeCP9C.js"></script>
+</head>
+  <body class="bg-gray-900 text-gray-100">
+    <div id="root"></div>
+  </body>
+</html>
